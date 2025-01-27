@@ -1,20 +1,48 @@
-# Ecommerce Transactions Dataset Analysis
+# Data Science Intern Tasks - Zeotap
 
-## Overview
-This project analyzes customer, product, and transaction data to derive actionable insights, recommend similar customers, and segment customers into distinct clusters. The project is structured into three main tasks:
-
-1. **Exploratory Data Analysis (EDA)**: Identifying trends in customer, product, and transaction data.
-2. **Lookalike Customer Recommendation**: Leveraging cosine similarity to find customers with similar purchasing patterns.
-3. **Customer Segmentation**: Using K-Means clustering to group customers into meaningful segments.
+This repository contains Data Science Intern Tasks - Zeotap. The focus is on analyzing e-commerce transaction data to derive actionable insights and build customer-focused solutions.
 
 ---
 
-## Data Sources
-The analysis is based on three datasets:
-- **Customers.csv**: Contains customer details like `Region` and `SignupDate`.
-- **Products.csv**: Includes product attributes such as `Category` and `Price`.
-- **Transactions.csv**: Stores transaction data, including `TransactionDate`, `Quantity`, and `TotalValue`.
+## Project Context
 
+In the competitive e-commerce landscape, understanding customer behavior is critical for improving customer retention, boosting sales, and personalizing marketing strategies. This project uses data science techniques to analyze customer transactions, identify patterns, and group customers into meaningful segments.
+
+Key goals:
+1. Explore customer, product, and transaction data for trends and insights.
+2. Recommend similar customers using purchasing behavior.
+3. Segment customers into distinct groups to enable targeted marketing strategies.
+
+---
+Dataset Links:
+- [Customers.csv](https://drive.google.com/file/d/1bu_--mo79VdUG9oin4ybfFGRUSXAe-WE/view?usp=sharing)
+- [Products.csv](https://drive.google.com/file/d/1IKuDizVapw-hyktwfpoAoaGtHtTNHfd0/view?usp=sharing)
+- [Transactions.csv](https://drive.google.com/file/d/1saEqdbBB-vuk2hxoAf4TzDEsykdKlzbF/view?usp=sharing)
+
+---
+## Dataset Overview
+
+The dataset consists of three files:
+1. **Customers.csv**
+   - `CustomerID`: Unique identifier for each customer.
+   - `CustomerName`: Name of the customer.
+   - `Region`: Continent where the customer resides.
+   - `SignupDate`: Date when the customer signed up.
+
+2. **Products.csv**
+   - `ProductID`: Unique identifier for each product.
+   - `ProductName`: Name of the product.
+   - `Category`: Product category.
+   - `Price`: Product price in USD.
+
+3. **Transactions.csv**
+   - `TransactionID`: Unique identifier for each transaction.
+   - `CustomerID`: ID of the customer who made the transaction.
+   - `ProductID`: ID of the product sold.
+   - `TransactionDate`: Date of the transaction.
+   - `Quantity`: Quantity of the product purchased.
+   - `TotalValue`: Total value of the transaction.
+   - `Price`: Price of the product sold.
 ---
 
 ## Key Tasks and Methodology
@@ -105,17 +133,37 @@ The analysis is based on three datasets:
    
    -Task 3: Customer Segmentation
    -Run the following command to perform clustering and save the results:
-   ```bash
-    python Tadipi_Rajesh_clustering.py
+      ```bash
+       python Tadipi_Rajesh_clustering.py
 
-5.Future Enhancements
-   - Incorporate additional datasets for deeper insights (e.g., customer feedback).
-   - Explore advanced clustering algorithms like DBSCAN or hierarchical clustering.
-   - Deploy the project as a web app for real-time analysis.
+#### Key Insights
+1. Customer Behavior:
+   - High-value customers with frequent transactions were identified.
+   - Seasonal trends and popular products were observed.
+2. Lookalike Customers:
+   - Customers with similar purchasing patterns were successfully identified, enabling personalized marketing campaigns.
+3. Customer Segments:
+   - Customers were grouped into distinct clusters such as "High Spenders," "Frequent Buyers," and "Low Engagement."
+   - These insights enable tailored promotions and retention strategies.
+
+#### Future Work
+**Goal**: Potential extensions and improvements for this project include:
+
+1.Predictive Analytics:
+   - Use machine learning models to predict future customer behavior, such as likelihood to churn or next product to purchase.
+
+2. Real-Time Recommendations:
+   - Build a pipeline to recommend products or customers in real-time using streaming data.
+
+3. Enhanced Segmentation:
+   - Incorporate advanced clustering methods like DBSCAN or hierarchical clustering to capture more nuanced customer segments.
+
+4. Dashboard Development:
+   - Create an interactive dashboard with tools like Streamlit or Dash for real-time visualization and reporting.
 
 
    
-Author
+  Author
 - Tadipi Rajesh
 - Passionate about backend development and machine learning.
 
