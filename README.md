@@ -1,80 +1,149 @@
-# Data Science Intern Tasks - Zeotap
+# Customer Insights and Analysis Project
 
-This repository contains the tasks and solutions for a Data Science assignment focused on analyzing an **eCommerce Transactions dataset**. The work encompasses **Exploratory Data Analysis (EDA)**, **Lookalike Modeling**, and **Customer Segmentation** to derive actionable insights and build data-driven strategies.
+## Overview
+This project involves analyzing customer, product, and transaction data to derive actionable insights, recommend lookalike customers, and segment customers into distinct clusters. The project is divided into three key tasks:
 
----
-
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Dataset](#dataset)
-3. [Tasks Overview](#tasks-overview)
-    - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-    - [Lookalike Modeling](#lookalike-modeling)
-    - [Customer Segmentation](#customer-segmentation)
-4. [Approach](#approach)
-5. [File Structure](#file-structure)
-6. [How to Run](#how-to-run)
-7. [Conclusions](#conclusions)
-8. [License](#license)
+1. **Exploratory Data Analysis (EDA)**: Visualizing customer, product, and transaction trends.
+2. **Lookalike Customer Recommendation**: Using cosine similarity to find customers with similar purchasing behavior.
+3. **Customer Segmentation**: Applying K-Means clustering to group customers into distinct segments.
 
 ---
 
-## Introduction
-The main objective of this repository is to analyze customer behavior, identify patterns, and develop models to support data-driven marketing strategies. Each task was carefully approached to ensure robust analysis and meaningful results.
+## Data Sources
+The analysis utilizes the following datasets:
+- **Customers.csv**: Contains information about customers, including their `Region` and `SignupDate`.
+- **Products.csv**: Contains product details like `Category` and `Price`.
+- **Transactions.csv**: Contains transaction details, including `TransactionDate`, `Quantity`, and `TotalValue`.
 
 ---
 
-## Dataset
-The dataset consists of **eCommerce transaction data**, including information such as customer IDs, transaction values, timestamps, and product details. The data is anonymized to ensure privacy.
+## Tasks and Approach
+
+### **Task 1: Exploratory Data Analysis (EDA)**
+**Objective**: Understand customer demographics, product preferences, and transaction trends.
+
+#### **Steps**:
+1. Loaded and preprocessed data:
+   - Converted date columns to `datetime`.
+   - Checked for missing values and summarized the data.
+2. Analyzed key metrics:
+   - Customer distribution by region.
+   - Product category preferences.
+   - Monthly sales trends.
+   - Top 10 products by sales.
+3. Visualized insights using:
+   - Bar plots for categorical distributions.
+   - Line plot for monthly sales trends.
+
+#### **Code Highlights**:
+- Used `pandas`, `matplotlib`, and `seaborn` for data manipulation and visualization.
 
 ---
 
-## Tasks Overview
+### **Task 2: Lookalike Customer Recommendation**
+**Objective**: Recommend the top 3 most similar customers (lookalikes) for each customer.
 
-### 1. Exploratory Data Analysis (EDA)
-- **Objective**: To explore the dataset, understand its structure, and identify patterns or anomalies.
-- **Key Steps**:
-  - Data cleaning and preprocessing.
-  - Generating descriptive statistics.
-  - Visualizing key insights (e.g., sales trends, customer behavior, etc.).
-  
-### 2. Lookalike Modeling
-- **Objective**: To build a model that identifies customers similar to a target group for effective marketing campaigns.
-- **Key Steps**:
-  - Feature engineering (e.g., RFM analysis: Recency, Frequency, and Monetary value).
-  - Applying machine learning models to classify or rank customers.
+#### **Steps**:
+1. Merged `Customers.csv`, `Products.csv`, and `Transactions.csv` to create a comprehensive dataset.
+2. Computed customer-specific features:
+   - Total amount spent.
+   - Average price of purchased products.
+   - Total quantity of products bought.
+   - Number of unique products purchased.
+3. Preprocessed numeric features using `StandardScaler`.
+4. Calculated cosine similarity between customers and identified the top 3 lookalikes for the first 20 customers.
+5. Saved the recommendations to a CSV file (`Tadipi_Rajesh_Lookalike.csv`).
 
-### 3. Customer Segmentation
-- **Objective**: To segment customers into distinct groups for personalized marketing.
-- **Key Steps**:
-  - Using clustering algorithms (e.g., K-Means or hierarchical clustering).
-  - Visualizing clusters and analyzing segment profiles.
-
----
-
-## Approach
-
-### General Workflow:
-1. **Data Preparation**: 
-   - Handled missing values, outliers, and inconsistencies.
-   - Standardized and normalized features for modeling.
-
-2. **EDA**:
-   - Created visualizations to uncover trends and outliers using tools like `matplotlib` and `seaborn`.
-   - Analyzed distributions, correlations, and time-series trends.
-
-3. **Lookalike Modeling**:
-   - Defined the target group based on specific criteria (e.g., high-value customers).
-   - Engineered features for predictive modeling and evaluated model performance.
-
-4. **Customer Segmentation**:
-   - Performed dimensionality reduction using PCA for high-dimensional data.
-   - Applied clustering techniques and validated results using metrics like Silhouette Score.
-
-5. **Visualization**:
-   - Used Python libraries to create meaningful plots and dashboards to represent results.
+#### **Code Highlights**:
+- Used `scikit-learn` for similarity computation.
+- Resulting CSV structure:
+    | CustomerID | Lookalikes                       |
+    |------------|----------------------------------|
+    | C0001      | [(C0010, 0.98), (C0005, 0.94)] |
+    | C0002      | [(C0011, 0.96), (C0008, 0.92)] |
 
 ---
 
-## File Structure
-data_science_intern_tasks_zeotap/ ├── data/ │ ├── raw_dataset.csv # Original dataset │ ├── processed_dataset.csv # Cleaned and prepared data ├── notebooks/ │ ├── Tadipi_Rajesh_EDA.py # Exploratory Data Analysis │ ├── 2Tadipi_Rajesh_Lookalike.py # Lookalike Modeling │ ├── 3Tadipi_Rajesh_Culstering.py # Customer Segmentation ├── visualizations/ │ ├── eda_plots.png # EDA visualizations │ ├── segmentation_clusters.png # Cluster analysis plots ├── README.md # Project documentation └── requirements.txt # Dependencies
+### **Task 3: Customer Segmentation**
+**Objective**: Cluster customers into distinct groups based on their purchasing behavior.
+
+#### **Steps**:
+1. Merged datasets and computed customer features (similar to Task 2).
+2. Encoded categorical variables (e.g., `Region`) and scaled numeric features using `StandardScaler`.
+3. Applied K-Means clustering for `k` ranging from 2 to 10.
+4. Evaluated clustering performance using:
+   - **Davies-Bouldin Index**: Lower is better.
+   - **Silhouette Score**: Higher is better.
+5. Selected the best number of clusters (`k`) based on the lowest Davies-Bouldin Index.
+6. Visualized clusters using PCA for dimensionality reduction.
+7. Saved clustering results to a CSV file (`Tadipi_Rajesh_Clustering.csv`).
+
+#### **Code Highlights**:
+- Used `scikit-learn` for clustering and evaluation metrics.
+- Resulting clusters visualized in 2D space:
+   
+---
+
+## Results
+### **Key Insights**:
+1. **From Task 1**:
+   - Identified regional distribution and top-performing products.
+   - Observed monthly sales trends, providing insights into seasonality.
+
+2. **From Task 2**:
+   - Successfully identified lookalike customers for personalized recommendations.
+
+3. **From Task 3**:
+   - Segmented customers into distinct clusters, enabling targeted marketing strategies.
+
+---
+
+## Technologies Used
+- **Programming Language**: Python
+- **Libraries**:
+  - `pandas`, `numpy`: Data manipulation
+  - `matplotlib`, `seaborn`: Visualization
+  - `scikit-learn`: Similarity computation, clustering, and metrics
+  - `PCA`: Dimensionality reduction for cluster visualization
+
+---
+
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/customer-insights-analysis.git
+
+2. pip install -r requirements.txt
+3. Place the datasets (Customers.csv, Products.csv, Transactions.csv) in the data/ directory.
+4. Run the scripts:
+    Task 1: Tadipi_Rajesh_EDA.py
+    Task 2: Tadipi_Rajesh_lookalike.py
+    Task 3: Tadipi_Rajesh_clustering.py
+   
+Files in Repository
+ Tadipi_Rajesh_EDA.py: Script for exploratory data analysis.
+Tadipi_Rajesh_lookalike.py: Script for lookalike customer recommendation.
+Tadipi_Rajesh_clustering.py: Script for customer segmentation.
+Tadipi_Rajesh_Lookalike.csv: Output of Task 2.
+Tadipi_Rajesh_Clustering.csv: Output of Task 3.
+
+Future Enhancements
+Incorporate additional datasets for deeper insights (e.g., customer feedback).
+Explore advanced clustering algorithms like DBSCAN or hierarchical clustering.
+Deploy the project as a web app for real-time analysis.
+Author
+Tadipi Rajesh
+Passionate about backend development and machine learning. Connect with me on LinkedIn.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+### Notes:
+- Replace `https://github.com/yourusername/customer-insights-analysis.git` with your actual GitHub repository URL.
+- Add real visualizations to replace the placeholder links in the **Task 1** and **Task 3** sections.
+- Ensure the file structure mentioned in the **How to Run** section matches your actual project structure. 
+
+Let me know if you'd like help fine-tuning this further!
+
+
