@@ -1,84 +1,79 @@
-# data_science_intern_tasks_zeotap
+# Data Science Intern Tasks - Zeotap
 
-
-# Data Science Assignment: eCommerce Transactions Dataset
-
-This repository contains the solution for the Data Science assignment focused on analyzing an eCommerce Transactions dataset. The tasks include exploratory data analysis, building a lookalike model, and performing customer segmentation.
+This repository contains the tasks and solutions for a Data Science assignment focused on analyzing an **eCommerce Transactions dataset**. The work encompasses **Exploratory Data Analysis (EDA)**, **Lookalike Modeling**, and **Customer Segmentation** to derive actionable insights and build data-driven strategies.
 
 ---
 
-## Dataset Overview
-
-The dataset consists of three files:
-1. **Customers.csv**
-   - `CustomerID`: Unique identifier for each customer.
-   - `CustomerName`: Name of the customer.
-   - `Region`: Continent where the customer resides.
-   - `SignupDate`: Date when the customer signed up.
-
-2. **Products.csv**
-   - `ProductID`: Unique identifier for each product.
-   - `ProductName`: Name of the product.
-   - `Category`: Product category.
-   - `Price`: Product price in USD.
-
-3. **Transactions.csv**
-   - `TransactionID`: Unique identifier for each transaction.
-   - `CustomerID`: ID of the customer who made the transaction.
-   - `ProductID`: ID of the product sold.
-   - `TransactionDate`: Date of the transaction.
-   - `Quantity`: Quantity of the product purchased.
-   - `TotalValue`: Total value of the transaction.
-   - `Price`: Price of the product sold.
-
-Dataset Links:
-- [Customers.csv](https://drive.google.com/file/d/1bu_--mo79VdUG9oin4ybfFGRUSXAe-WE/view?usp=sharing)
-- [Products.csv](https://drive.google.com/file/d/1IKuDizVapw-hyktwfpoAoaGtHtTNHfd0/view?usp=sharing)
-- [Transactions.csv](https://drive.google.com/file/d/1saEqdbBB-vuk2hxoAf4TzDEsykdKlzbF/view?usp=sharing)
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Dataset](#dataset)
+3. [Tasks Overview](#tasks-overview)
+    - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+    - [Lookalike Modeling](#lookalike-modeling)
+    - [Customer Segmentation](#customer-segmentation)
+4. [Approach](#approach)
+5. [File Structure](#file-structure)
+6. [How to Run](#how-to-run)
+7. [Conclusions](#conclusions)
+8. [License](#license)
 
 ---
 
-## Assignment Tasks
-
-### Task 1: Exploratory Data Analysis (EDA) and Business Insights
-- **Objective**: Perform EDA on the dataset and derive at least 5 actionable business insights.
-- **Deliverables**:
-  - A Jupyter Notebook or Python script with the EDA code.
-  - A PDF report summarizing the insights.
-
-### Task 2: Lookalike Model
-- **Objective**: Build a model to recommend 3 similar customers based on user profile and transaction history.
-- **Deliverables**:
-  - A Jupyter Notebook or Python script with the model implementation.
-  - A CSV file (`Lookalike.csv`) containing recommendations for the first 20 customers (`C0001` - `C0020`).
-
-### Task 3: Customer Segmentation / Clustering
-- **Objective**: Perform customer segmentation using clustering techniques with data from both Customers.csv and Transactions.csv.
-- **Deliverables**:
-  - A report detailing the number of clusters, DB Index value, and other metrics.
-  - A Jupyter Notebook or Python script with clustering code.
+## Introduction
+The main objective of this repository is to analyze customer behavior, identify patterns, and develop models to support data-driven marketing strategies. Each task was carefully approached to ensure robust analysis and meaningful results.
 
 ---
 
-## Submission Guidelines
-1. Upload all files to a public GitHub repository.
-2. File naming conventions:
-   - `FirstName_LastName_EDA.pdf`
-   - `FirstName_LastName_EDA.ipynb`
-   - `FirstName_LastName_Lookalike.csv`
-   - `FirstName_LastName_Lookalike.ipynb`
-   - `FirstName_LastName_Clustering.pdf`
-   - `FirstName_LastName_Clustering.ipynb`
+## Dataset
+The dataset consists of **eCommerce transaction data**, including information such as customer IDs, transaction values, timestamps, and product details. The data is anonymized to ensure privacy.
 
 ---
 
-## Evaluation Criteria
-- **Exploratory Data Analysis (EDA)**: 25%
-- **Business Insights**: 15%
-- **Lookalike Model**: 30%
-- **Customer Segmentation**: 30%
+## Tasks Overview
+
+### 1. Exploratory Data Analysis (EDA)
+- **Objective**: To explore the dataset, understand its structure, and identify patterns or anomalies.
+- **Key Steps**:
+  - Data cleaning and preprocessing.
+  - Generating descriptive statistics.
+  - Visualizing key insights (e.g., sales trends, customer behavior, etc.).
+  
+### 2. Lookalike Modeling
+- **Objective**: To build a model that identifies customers similar to a target group for effective marketing campaigns.
+- **Key Steps**:
+  - Feature engineering (e.g., RFM analysis: Recency, Frequency, and Monetary value).
+  - Applying machine learning models to classify or rank customers.
+
+### 3. Customer Segmentation
+- **Objective**: To segment customers into distinct groups for personalized marketing.
+- **Key Steps**:
+  - Using clustering algorithms (e.g., K-Means or hierarchical clustering).
+  - Visualizing clusters and analyzing segment profiles.
 
 ---
 
-## Final Note
-This assignment emphasizes practical application of data science skills. Ensure your code is clean, efficient, and insightful. Good luck!
+## Approach
+
+### General Workflow:
+1. **Data Preparation**: 
+   - Handled missing values, outliers, and inconsistencies.
+   - Standardized and normalized features for modeling.
+
+2. **EDA**:
+   - Created visualizations to uncover trends and outliers using tools like `matplotlib` and `seaborn`.
+   - Analyzed distributions, correlations, and time-series trends.
+
+3. **Lookalike Modeling**:
+   - Defined the target group based on specific criteria (e.g., high-value customers).
+   - Engineered features for predictive modeling and evaluated model performance.
+
+4. **Customer Segmentation**:
+   - Performed dimensionality reduction using PCA for high-dimensional data.
+   - Applied clustering techniques and validated results using metrics like Silhouette Score.
+
+5. **Visualization**:
+   - Used Python libraries to create meaningful plots and dashboards to represent results.
+
+---
+
+## File Structure
