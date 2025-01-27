@@ -77,3 +77,4 @@ The dataset consists of **eCommerce transaction data**, including information su
 ---
 
 ## File Structure
+data_science_intern_tasks_zeotap/ ├── data/ │ ├── raw_dataset.csv # Original dataset │ ├── processed_dataset.csv # Cleaned and prepared data ├── notebooks/ │ ├── Tadipi_Rajesh_EDA.py # Exploratory Data Analysis │ ├── 2Tadipi_Rajesh_Lookalike.py # Lookalike Modeling │ ├── 3Tadipi_Rajesh_Culstering.py # Customer Segmentation ├── visualizations/ │ ├── eda_plots.png # EDA visualizations │ ├── segmentation_clusters.png # Cluster analysis plots ├── README.md # Project documentation └── requirements.txt # Dependencies
